@@ -1,0 +1,34 @@
+{
+  "temperature": 1.4973387941188139,
+  "uncalibrated": {
+    "accuracy": 0.9305,
+    "nll": 0.24348343538500689,
+    "ece_15_bins": 0.03245176662605791,
+    "brier": 0.10805130633716147
+  },
+  "temperature_scaled": {
+    "accuracy": 0.9305,
+    "nll": 0.2129838108065225,
+    "ece_15_bins": 0.007174892051254987,
+    "brier": 0.10311738315725578
+  },
+  "conformal_aps": {
+    "nominal_coverage": 0.9,
+    "threshold": 0.9994469744780672,
+    "coverage": 0.9998,
+    "mean_set_size": 5.9218,
+    "singleton_rate": 0.0987
+  },
+  "ood_svhn": {
+    "msp": {
+      "auroc": 0.9121682122003688,
+      "aupr_out": 0.9404427966922645,
+      "fpr_at_95_tpr": 0.1975
+    },
+    "energy": {
+      "auroc": 0.9211473225261219,
+      "aupr_out": 0.9452343091090063,
+      "fpr_at_95_tpr": 0.2309
+    }
+  }
+}
