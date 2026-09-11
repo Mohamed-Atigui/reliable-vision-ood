@@ -1,0 +1,13 @@
+seed: 42
+data_dir: data
+output_dir: artifacts
+checkpoint_dir: checkpoints
+batch_size: 128
+num_workers: 4
+epochs: 30
+learning_rate: 0.1
+weight_decay: 0.0005
+calibration_fraction: 0.10
+coverage: 0.90
+temperature_grid_size: 400
+device: auto
