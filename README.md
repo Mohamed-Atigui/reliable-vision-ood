@@ -45,8 +45,27 @@ is supported but substantially slower. Evaluation writes `artifacts/metrics.json
 | OOD test | SVHN test | OOD discrimination |
 
 The project reports accuracy, NLL, ECE, Brier score, conformal coverage and set size, plus OOD AUROC,
-AUPR-Out and FPR@95TPR. No numerical result is claimed until the configured experiment has been run and its
-generated artifacts have been committed.
+AUPR-Out and FPR@95TPR.
+
+## Results
+
+The default 30-epoch experiment was run on a Tesla T4 with seed 42. Temperature scaling preserved the
+classifier's 93.05% test accuracy while reducing 15-bin ECE from 3.25% to 0.72% and NLL from 0.243 to 0.213.
+
+| Evaluation | Metric | Result |
+| --- | --- | ---: |
+| CIFAR-10 | Test accuracy | 93.05% |
+| Calibration | ECE, before -> after | 3.25% -> 0.72% |
+| Calibration | NLL, before -> after | 0.243 -> 0.213 |
+| Calibration | Brier, before -> after | 0.108 -> 0.103 |
+| APS (90% target) | Empirical coverage | 99.98% |
+| APS (90% target) | Mean set size | 5.92 classes |
+| SVHN OOD, MSP | AUROC / AUPR-Out | 91.22% / 94.04% |
+| SVHN OOD, energy | AUROC / AUPR-Out | 92.11% / 94.52% |
+
+The APS result is deliberately reported with its mean set size: its near-total coverage is conservative rather
+than evidence of sharp prediction sets. Machine-readable results are stored in `artifacts/metrics.json`, and the
+Colab notebook reproduces training and evaluation from a fresh checkout.
 
 ## Repository structure
 
@@ -64,6 +83,8 @@ generated artifacts have been committed.
 │   ├── train.py
 │   └── utils.py
 ├── tests/
+├── artifacts/metrics.json
+├── Reliable_Vision_OOD_Training.ipynb
 ├── MODEL_CARD.md
 └── pyproject.toml
 ```
